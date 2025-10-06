@@ -18,6 +18,13 @@ class TestBasicOperations:
         assert subtract(5, 3) == 2
         assert subtract(10, 4) == 6
 
+    def test_subtract_negative_numbers(self):
+        """Test subtracting negative numbers"""
+        assert subtract(-1, -1) == 0
+        assert subtract(-5, -3) == -2
+
+class TestMultiplyDivideWithValidation:
+    """Test multiplication and division with input validation."""
 class TestMultiplyDivideWithValidation:
     """Test multiplication and division with input validation."""
     
@@ -27,7 +34,17 @@ class TestMultiplyDivideWithValidation:
             multiply("5", 3)
         with pytest.raises(TypeError, match="Both arguments must be numbers"):
             multiply(5, "3")
+    def test_multiply_input_validation(self):
+        """Test multiply rejects non-numeric inputs."""
+        with pytest.raises(TypeError, match="Both arguments must be numbers"):
+            multiply("5", 3)
+        with pytest.raises(TypeError, match="Both arguments must be numbers"):
+            multiply(5, "3")
     
+    def test_divide_input_validation(self):
+        """Test divide rejects non-numeric inputs."""
+        with pytest.raises(TypeError, match="Division requires numeric inputs"):
+            divide("10", 2)
     def test_divide_input_validation(self):
         """Test divide rejects non-numeric inputs."""
         with pytest.raises(TypeError, match="Division requires numeric inputs"):
