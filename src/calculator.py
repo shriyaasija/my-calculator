@@ -24,7 +24,6 @@ def divide(a, b):
     return a / b
 
 
-# TODO: Students will add multiply, divide, power, sqrt functions
 def power(a, b):
     """Raise a to the power of b"""
     return a**b
